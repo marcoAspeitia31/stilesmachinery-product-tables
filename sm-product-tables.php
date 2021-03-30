@@ -16,6 +16,9 @@ if( ! function_exists('sm_product_tables') ) :
 
     /* To implement de shortcode please write the next code [sm_product_tables_shortcode] in a DIVI code module */
     function sm_product_tables(){
+        echo '<pre>';
+        var_dump(get_field('tabla_de_especificaciones'));
+        echo '<pre>';
         echo 'Hola desde el shortcode';
     }
     add_shortcode( 'sm_product_tables_shortcode', 'sm_product_tables', 10 );
