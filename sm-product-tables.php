@@ -20,7 +20,7 @@ if( ! function_exists('sm_product_tables') ) :
         $table = get_field('tabla_de_especificaciones'); 
         if($table){
         ?>
-        <table>
+        <table class="machinery-table">
             <thead>
                 <tr>
                     <?php foreach($table['header'] as $th): ?>
