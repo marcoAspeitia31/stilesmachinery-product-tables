@@ -12,6 +12,16 @@ Text Domain: sm-product-tables
 
 if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+
+/* Enqueue Styles and Scripts */
+function sm_product_machinery_plugin(){
+    $dir = plugin_dir_path( __FILE__ );
+    wp_enqueue_style('bxSlider-style', $dir = plugin_dir_path( __FILE__ ) . 'css/jquery.bxslider.min.css', array(), '4.2.12');
+    wp_enqueue_script('bxSlider', $dir = plugin_dir_path( __FILE__ ) . 'js/jquery.bxslider.min.js', array('jquery'), '4.2.12', true);
+    wp_enqueue_script('sm-product-machinery-plugin', $dir = plugin_dir_path( __FILE__ ) . 'js/scripts.js', array('bxSlider'), '1.0.0', true);
+}
+add_action( 'wp_enqueue_scripts', 'sm_product_machinery_plugin' );
+
 if( ! function_exists('sm_product_tables') ) :
     /* To implement de shortcode please write the next code [sm_product_tables_shortcode] in a DIVI code module */
     function sm_product_tables(){
