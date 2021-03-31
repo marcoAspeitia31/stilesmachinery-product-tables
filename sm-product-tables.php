@@ -48,4 +48,27 @@ if( ! function_exists('sm_product_tables') ) :
         return ob_get_clean();
     }
     add_shortcode( 'sm_product_tables_shortcode', 'sm_product_tables', 10 );
+    /* To implement de shortcode please write the next code [sm_product_tables_shortcode] in a DIVI code module */
+endif;
+
+if( ! function_exists('sm_product_gallery') ) :
+
+    function sm_product_gallery(){
+        // begin output buffering
+        ob_start();
+        //printf ('<pre>%s</pre>', var_export(get_post_custom( get_the_ID()), true) );
+        $machinery_gallery = get_post_meta(get_the_ID(), 'machinery_product_galeria_imagenes' , true);
+        echo '<ul class="machinery-gallery">';
+            foreach($machinery_gallery as $id => $image){
+                echo '<li>';
+                    echo wp_get_attachment_image( $id, 'full', false, ["class" => "img-fluid"] );
+                echo '</li>';
+            }
+        echo '</ul>';
+        // end output buffering, grab the buffer contents, and empty the buffer
+        return ob_get_clean();
+    }
+    add_shortcode( 'sm_product_gallery_shortcode', 'sm_product_gallery', 10 );
+    /* To implement de shortcode please write the next code [sm_product_gallery_shortcode] in a DIVI code module */
+
 endif;
