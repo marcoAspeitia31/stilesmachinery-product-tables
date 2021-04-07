@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Stiles Machinery Product Tables
+Plugin Name: Custom Stiles Machinery Shorcodes
 Plugin URI: https://devitm.com
 Description: Customize WordPress with powerful, professional and intuitive fields.
 Version: 1.0.2
