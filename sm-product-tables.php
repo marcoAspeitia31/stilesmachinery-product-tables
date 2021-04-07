@@ -3,7 +3,7 @@
 Plugin Name: Stiles Machinery Product Tables
 Plugin URI: https://devitm.com
 Description: Customize WordPress with powerful, professional and intuitive fields.
-Version: 1.0.1
+Version: 1.0.2
 Author: Marco Aspeitia
 Author URI: https://www.devitm.com
 Text Domain: sm-product-tables
@@ -63,7 +63,15 @@ if( ! function_exists('sm_product_gallery') ) :
             echo '<ul class="machinery-gallery">';
                 foreach($machinery_gallery as $id => $image){
                     echo '<li class="image-slide">';
-                        echo wp_get_attachment_image( $id, 'full', false, ["class" => "img-fluid"] );
+                        echo wp_get_attachment_image( $id, 'full', false, ["class" => "img-fluid"]);
+                    echo '</li>';
+                }
+            echo '</ul>';
+            echo '<ul class="machinery-caption">';
+                foreach($machinery_gallery as $id => $image){
+                    $image_alt = get_post_meta( $id, '_wp_attachment_image_alt', true);
+                    echo '<li class="image-caption">';
+                        echo $image_alt;
                     echo '</li>';
                 }
             echo '</ul>';
