@@ -31,13 +31,37 @@ if( ! function_exists('sm_product_tables') ) :
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($table['body'] as $tr): ?>
-                <tr>
-                    <?php foreach($tr as $td): ?>
-                    <td><?php echo $td['c']; ?></td>
-                    <?php endforeach; ?>
+                <?php
+                    /**
+                     * Agregar clase first-body-row mediante operador ternario
+                     */
+                    $first_body_row = true;
+                    foreach($table['body'] as $tr):
+                ?>
+                <tr <?php echo $first_body_row ? 'class="first-body-row"' : '';?>>
+                    <?php
+                        /**
+                        * Agregar clase first-body-column mediante operador ternario
+                        */
+                        $first_body_column = true;
+                        foreach($tr as $td):
+                    ?>
+                    <td <?php echo $first_body_column ? 'class="first-body-column"' : '';?>><?php echo $td['c']; ?></td>
+                    <?php
+                        $first_body_column = false;
+                        endforeach;
+                        /**
+                        * Fin de columnas del cuerpo de la tabla
+                        */
+                    ?>
                 </tr>
-                <?php endforeach; ?>
+                <?php
+                    $first_body_row = false;
+                    endforeach;
+                    /**
+                    * Fin de filas del cuerpo de la tabla
+                    */
+                ?>
             </tbody>
         </table>
         <?php
